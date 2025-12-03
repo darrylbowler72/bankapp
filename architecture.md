@@ -35,6 +35,14 @@ A modern, lightweight digital banking platform built with Node.js, Express, and 
 
 ## 2. Technology Stack
 
+### Frontend
+- **Framework:** React 18
+- **Routing:** React Router v6
+- **HTTP Client:** Axios
+- **Styling:** CSS3 with Grid and Flexbox
+- **Build Tool:** Create React App
+- **Web Server:** Nginx
+
 ### Backend
 - **Runtime:** Node.js 20+
 - **Framework:** Express.js
@@ -48,6 +56,7 @@ A modern, lightweight digital banking platform built with Node.js, Express, and 
 - **Containerization:** Docker & Docker Compose
 - **Process Management:** Node.js native
 - **Logging:** JSON structured logs
+- **Reverse Proxy:** Nginx
 
 ---
 
@@ -607,11 +616,164 @@ curl -X POST http://localhost:3000/accounts \
 
 ---
 
-## 10. Project Structure
+## 10. Frontend Application
+
+### 10.1 User Interface
+
+The React front-end provides a modern, responsive web interface for the banking application.
+
+**Access URL:** `http://localhost` (when running with Docker) or `http://localhost:3000` (development mode)
+
+### 10.2 Pages and Components
+
+#### Authentication Pages
+- **Login Page** (`/login`)
+  - Email and password authentication
+  - JWT token-based session management
+  - Smooth animations and modern design
+  - Direct navigation to registration
+
+- **Register Page** (`/register`)
+  - New user account creation
+  - Password confirmation validation
+  - Automatic login after registration
+
+#### Dashboard (`/dashboard`)
+The main application interface includes:
+
+1. **Balance Overview Card**
+   - Total balance across all accounts
+   - Gradient design with animation
+   - Real-time balance updates
+
+2. **Statistics Section**
+   - Total number of accounts
+   - Transaction count
+   - Unread notifications count
+
+3. **Account Management**
+   - Create new checking/savings accounts
+   - View all accounts with balances
+   - Interactive account cards with hover effects
+   - Quick actions: Deposit, Withdraw, Transfer
+
+4. **Transaction History**
+   - Recent transactions display
+   - Color-coded by transaction type
+   - Date and amount information
+   - Transaction descriptions
+
+5. **AI-Powered Insights**
+   - Spending analysis for last 30 days
+   - Personalized financial recommendations
+   - System health monitoring
+   - Real-time metrics display
+
+6. **Notifications Center**
+   - Transaction alerts
+   - System notifications
+   - Read/unread status indicators
+
+### 10.3 UI Design Features
+
+- **Modern Gradient Theme**
+  - Purple to blue gradient backgrounds
+  - Smooth color transitions
+  - Professional banking aesthetic
+
+- **Responsive Design**
+  - Mobile-friendly layouts
+  - CSS Grid and Flexbox
+  - Adaptive breakpoints
+
+- **Interactive Elements**
+  - Hover animations
+  - Button transforms
+  - Modal overlays
+  - Smooth transitions
+
+- **User Experience**
+  - Loading states
+  - Error messaging
+  - Form validation
+  - Success feedback
+
+### 10.4 Component Architecture
+
+```
+App (Router)
+├── Login
+├── Register
+└── Dashboard
+    ├── AccountCard (multiple)
+    ├── TransactionModal
+    ├── AIInsights
+    └── Notifications
+```
+
+### 10.5 State Management
+
+- Local component state with React hooks
+- LocalStorage for authentication persistence
+- JWT token stored in localStorage
+- User data cached locally
+
+### 10.6 API Integration
+
+All API calls use Axios with Bearer token authentication:
+- Auth endpoints for login/register
+- Account management endpoints
+- Transaction processing
+- AI agent insights
+- Notification retrieval
+
+### 10.7 Frontend Development
+
+**Development Mode:**
+```bash
+cd client
+npm install
+npm start
+```
+
+**Production Build:**
+```bash
+cd client
+npm run build
+```
+
+The build creates an optimized production bundle in `client/build/`.
+
+---
+
+## 11. Project Structure
 
 ```
 bankapp/
-├── src/
+├── client/                     # React front-end application
+│   ├── public/
+│   │   └── index.html          # HTML template
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── Login.js        # Login page
+│   │   │   ├── Register.js     # Registration page
+│   │   │   ├── Dashboard.js    # Main dashboard
+│   │   │   ├── AccountCard.js  # Account display component
+│   │   │   ├── TransactionModal.js  # Transaction form modal
+│   │   │   ├── AIInsights.js   # AI insights display
+│   │   │   ├── Auth.css        # Authentication styling
+│   │   │   ├── Dashboard.css   # Dashboard styling
+│   │   │   ├── AccountCard.css # Account card styling
+│   │   │   ├── TransactionModal.css  # Modal styling
+│   │   │   └── AIInsights.css  # AI insights styling
+│   │   ├── App.js              # Main app component
+│   │   ├── App.css             # App styling
+│   │   ├── index.js            # React entry point
+│   │   └── index.css           # Global styles
+│   ├── Dockerfile              # Client Docker config
+│   ├── nginx.conf              # Nginx configuration
+│   └── package.json            # Client dependencies
+├── src/                        # Backend source code
 │   ├── database/
 │   │   ├── db.ts              # PostgreSQL connection pool
 │   │   └── migrate.ts          # Database migrations
@@ -635,9 +797,9 @@ bankapp/
 ├── .dockerignore
 ├── .env.example
 ├── .gitignore
-├── Dockerfile
-├── docker-compose.yml
-├── package.json
+├── Dockerfile                  # Backend Docker config
+├── docker-compose.yml          # Multi-container setup
+├── package.json                # Backend dependencies
 ├── tsconfig.json
 ├── README.md
 └── architecture.md
