@@ -1,0 +1,103 @@
+.account-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  border-left: 4px solid #667eea;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.account-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  transform: translateY(-3px);
+}
+
+.account-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.account-icon {
+  font-size: 32px;
+}
+
+.account-info h4 {
+  margin: 0 0 4px 0;
+  color: #333;
+  font-size: 16px;
+}
+
+.account-number {
+  margin: 0;
+  color: #999;
+  font-size: 12px;
+  font-family: 'Courier New', monospace;
+}
+
+.account-balance {
+  margin-bottom: 20px;
+}
+
+.balance-label {
+  margin: 0 0 8px 0;
+  color: #666;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.balance-value {
+  margin: 0;
+  color: #333;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.account-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.action-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.action-btn.deposit {
+  background: #e8f5e9;
+  color: #4caf50;
+}
+
+.action-btn.deposit:hover {
+  background: #4caf50;
+  color: white;
+}
+
+.action-btn.withdraw {
+  background: #ffebee;
+  color: #f44336;
+}
+
+.action-btn.withdraw:hover {
+  background: #f44336;
+  color: white;
+}
+
+.action-btn.transfer {
+  background: #e3f2fd;
+  color: #2196f3;
+}
+
+.action-btn.transfer:hover {
+  background: #2196f3;
+  color: white;
+}
