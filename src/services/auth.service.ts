@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
+import jwt, { SignOptions } from 'jsonwebtoken';
 import pool from '../database/db';
 import { logger } from '../utils/logger';
 
@@ -54,12 +54,11 @@ export class AuthService {
       }
 
       const secret = process.env.JWT_SECRET || 'your-secret-key';
-      const expiresIn = process.env.JWT_EXPIRES_IN || '24h';
 
       const token = jwt.sign(
         { userId: user.id },
         secret,
-        { expiresIn }
+        { expiresIn: '24h' }
       );
 
       logger.info('User logged in', { email });
