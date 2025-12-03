@@ -7,14 +7,15 @@
 
 ## Table of Contents
 1. [System Overview](#system-overview)
-2. [Technology Stack](#technology-stack)
-3. [Architecture Design](#architecture-design)
-4. [Data Model](#data-model)
-5. [API Endpoints](#api-endpoints)
-6. [Agentic AI Features](#agentic-ai-features)
-7. [Security](#security)
-8. [Deployment](#deployment)
-9. [Development Setup](#development-setup)
+2. [User Interface Screenshots](#user-interface-screenshots)
+3. [Technology Stack](#technology-stack)
+4. [Architecture Design](#architecture-design)
+5. [Data Model](#data-model)
+6. [API Endpoints](#api-endpoints)
+7. [Agentic AI Features](#agentic-ai-features)
+8. [Security](#security)
+9. [Deployment](#deployment)
+10. [Development Setup](#development-setup)
 
 ---
 
@@ -30,6 +31,209 @@ A modern, lightweight digital banking platform built with Node.js, Express, and 
 - Push notifications for account activities
 - Agentic AI for fraud detection, balance monitoring, and customer assistance
 - System health monitoring and self-healing capabilities
+
+---
+
+## 2. User Interface Screenshots
+
+### 2.1 Login Page
+
+**URL:** `http://localhost:3001/login`
+
+The login page features a modern, gradient design with smooth animations:
+
+```
+┌────────────────────────────────────────────────────────┐
+│                                                        │
+│              [Purple Gradient Background]             │
+│                                                        │
+│  ╔════════════════════════════════════════════╗      │
+│  ║                                            ║      │
+│  ║        💳  Banking App                     ║      │
+│  ║        Secure Digital Banking              ║      │
+│  ║                                            ║      │
+│  ║────────────────────────────────────────────║      │
+│  ║                                            ║      │
+│  ║    Welcome Back                            ║      │
+│  ║    Sign in to your account                 ║      │
+│  ║                                            ║      │
+│  ║    Email Address:                          ║      │
+│  ║    [________________________]              ║      │
+│  ║                                            ║      │
+│  ║    Password:                               ║      │
+│  ║    [________________________]              ║      │
+│  ║                                            ║      │
+│  ║         [    Sign In    ]                  ║      │
+│  ║                                            ║      │
+│  ║    Don't have an account? Sign up          ║      │
+│  ║                                            ║      │
+│  ║────────────────────────────────────────────║      │
+│  ║  🔒 Bank-level  🤖 AI-powered  ⚡ Instant  ║      │
+│  ║   security        insights      transfers  ║      │
+│  ╚════════════════════════════════════════════╝      │
+│                                                        │
+└────────────────────────────────────────────────────────┘
+```
+
+**Key Features:**
+- Gradient purple/blue background
+- Floating card animation
+- Email and password input fields
+- Link to registration page
+- Feature badges at bottom
+
+### 2.2 Dashboard - Main View
+
+**URL:** `http://localhost:3001/dashboard`
+
+The dashboard provides a comprehensive overview of all banking activities:
+
+```
+┌──────────────────────────────────────────────────────────────────────┐
+│ 💳 Banking App                           user@example.com  [Logout]  │
+├──────────────────────────────────────────────────────────────────────┤
+│                                                                       │
+│  Welcome back!                        [+ New Checking] [+ New Savings]│
+│  Here's your financial overview                                      │
+│                                                                       │
+│  ┌─────────────────────────────┐  ┌──────────┐┌──────────┐┌────────┐│
+│  │  💰                         │  │🏦        ││📊        ││🔔      ││
+│  │  Total Balance              │  │2 Accounts││15 Trans. ││3 Notif.││
+│  │  $2,500.00                  │  └──────────┘└──────────┘└────────┘│
+│  └─────────────────────────────┘                                     │
+│                                                                       │
+│  Your Accounts                     Recent Transactions               │
+│  ┌─────────────────────────────┐  ┌────────────────────────────────┐│
+│  │ 💳 Checking Account         │  │ 💵 Initial deposit             ││
+│  │ ****0001                    │  │    2025-12-03    +$1,000.00   ││
+│  │ Available Balance           │  ├────────────────────────────────┤│
+│  │ $1,500.00                   │  │ 🔄 Transfer to savings         ││
+│  │ [Deposit][Withdraw][Transfer]│  │    2025-12-03     -$250.00    ││
+│  └─────────────────────────────┘  ├────────────────────────────────┤│
+│                                    │ 💸 ATM Withdrawal              ││
+│  ┌─────────────────────────────┐  │    2025-12-02     -$100.00    ││
+│  │ 🏦 Savings Account          │  └────────────────────────────────┘│
+│  │ ****0002                    │                                    │
+│  │ Available Balance           │  🤖 AI-Powered Insights       [Beta]│
+│  │ $1,000.00                   │  ┌────────────────────────────────┐│
+│  │ [Deposit][Withdraw][Transfer]│  │ 📊 Spending Analysis           ││
+│  └─────────────────────────────┘  │ Last 30 days:                  ││
+│                                    │ • Total Deposited: $3,000.00   ││
+│                                    │ • Total Spent: $500.00         ││
+│  Notifications                     │ • Net Change: +$2,500.00       ││
+│  ┌─────────────────────────────┐  │ 💡 Great job saving!           ││
+│  │ ⚠️  Large withdrawal detected│  ├────────────────────────────────┤│
+│  │ 📬  Deposit completed        │  │ 🏥 System Health               ││
+│  │ 📬  Transfer successful      │  │ ● All Systems Operational      ││
+│  └─────────────────────────────┘  │ Database: ✓  Response: 2ms     ││
+│                                    └────────────────────────────────┘│
+└──────────────────────────────────────────────────────────────────────┘
+```
+
+**Key Sections:**
+1. **Navigation Bar** - App logo, user email, logout button
+2. **Balance Overview** - Large card showing total balance with gradient background
+3. **Statistics Cards** - Accounts count, transactions, notifications
+4. **Account Cards** - Interactive cards for each account with quick action buttons
+5. **Transaction History** - Recent transactions with icons and amounts
+6. **AI Insights** - Spending analysis and recommendations
+7. **System Health** - Real-time system status monitoring
+8. **Notifications** - Recent alerts and messages
+
+### 2.3 Transaction Modal
+
+When clicking Deposit, Withdraw, or Transfer, a modal overlay appears:
+
+```
+        ┌────────────────────────────────────┐
+        │  💵  Deposit Funds            [×]  │
+        ├────────────────────────────────────┤
+        │                                    │
+        │  From Account:                     │
+        │  Checking Account                  │
+        │  Balance: $1,500.00                │
+        │                                    │
+        │  Amount:                           │
+        │  $ [_________________]             │
+        │                                    │
+        │  Description (optional):           │
+        │  [_______________________________] │
+        │                                    │
+        │  [  Cancel  ]  [Complete Deposit]  │
+        │                                    │
+        └────────────────────────────────────┘
+```
+
+**Features:**
+- Modal overlay with backdrop
+- Account selection (for transfers)
+- Amount input with currency symbol
+- Optional description field
+- Cancel and submit buttons
+- Real-time validation
+
+### 2.4 AI Insights Panel
+
+The AI-powered insights section shows:
+
+```
+┌───────────────────────────────────────────────────────┐
+│  🤖 AI-Powered Insights                        [Beta] │
+├───────────────────────────────────────────────────────┤
+│                                                       │
+│  📊 Spending Analysis            🏥 System Health     │
+│  ┌─────────────────────────┐   ┌──────────────────┐ │
+│  │ Last 30 days           │   │ ● All Systems    │ │
+│  │                        │   │   Operational    │ │
+│  │ Total Deposited:       │   │                  │ │
+│  │ $3,000.00              │   │ Database: ✓      │ │
+│  │                        │   │ Response: 2ms    │ │
+│  │ Total Spent:           │   │ Error Rate: 0    │ │
+│  │ $500.00                │   │                  │ │
+│  │                        │   │                  │ │
+│  │ Net Change:            │   │                  │ │
+│  │ +$2,500.00             │   │                  │ │
+│  │                        │   │                  │ │
+│  │ 💡 Great job saving!   │   │                  │ │
+│  │    Consider investment │   │                  │ │
+│  │    opportunities       │   │                  │ │
+│  └─────────────────────────┘   └──────────────────┘ │
+└───────────────────────────────────────────────────────┘
+```
+
+**AI Features:**
+- Spending analysis for last 30 days
+- Personalized recommendations
+- System health monitoring
+- Real-time metrics
+- Database connectivity status
+
+### 2.5 Design Elements
+
+**Color Scheme:**
+- Primary Gradient: Purple (#667eea) to Blue (#764ba2)
+- Success: Green (#4caf50)
+- Warning: Orange/Yellow (#ffc107)
+- Error: Red (#f44336)
+- Background: Light gray (#f5f7fa)
+- Cards: White (#ffffff)
+
+**Typography:**
+- Font Family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto'
+- Headers: 28-32px, Bold
+- Body: 14-16px, Regular
+- Small Text: 12-13px, Regular
+
+**Animations:**
+- Floating card animations (3s ease-in-out loop)
+- Hover effects with transform and shadow
+- Smooth transitions (0.3s)
+- Pulse animation for status indicators
+
+**Responsive Design:**
+- Desktop: Full grid layouts
+- Tablet: Stacked sections
+- Mobile: Single column, optimized touch targets
 
 ---
 

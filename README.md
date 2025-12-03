@@ -133,12 +133,128 @@ Agents interact through:
 
 ### Local / Development
 - Docker + Docker Compose (or Podman Compose)
+- Frontend: React app on port 3001
+- Backend API: Express server on port 3000
+- Database: PostgreSQL on port 5432
+- Cache: Redis on port 6379
 
 ### Production
-- Podman, Docker, or Kubernetes  
-- Each service runs in separate container  
-- PostgreSQL hosted in managed DB or container  
+- Podman, Docker, or Kubernetes
+- Each service runs in separate container
+- PostgreSQL hosted in managed DB or container
+
+### Quick Start
+
+```bash
+# Start backend services
+podman-compose up -d
+
+# Start frontend (in another terminal)
+cd client
+npm install
+npm start
+```
+
+Access the application at:
+- **Frontend:** http://localhost:3001
+- **Backend API:** http://localhost:3000
+- **API Health:** http://localhost:3000/health
 
 ---
 
-**End of architecture.md**
+## 9. User Interface
+
+### Login Screen
+
+The application features a modern, gradient-based UI with smooth animations:
+
+```
+╔════════════════════════════════════════════╗
+║                                            ║
+║        💳  Banking App                     ║
+║        Secure Digital Banking              ║
+║                                            ║
+║    Welcome Back                            ║
+║    Sign in to your account                 ║
+║                                            ║
+║    Email: [____________________]           ║
+║    Password: [____________________]        ║
+║                                            ║
+║         [    Sign In    ]                  ║
+║                                            ║
+║  🔒 Bank-level  🤖 AI-powered  ⚡ Instant  ║
+║   security        insights      transfers  ║
+╚════════════════════════════════════════════╝
+```
+
+### Dashboard
+
+Once logged in, users see a comprehensive dashboard:
+
+**Key Features:**
+- 💰 **Total Balance Card** - Gradient card showing aggregate balance
+- 🏦 **Account Cards** - Interactive cards for checking/savings accounts
+- 📊 **Transaction History** - Recent transactions with color coding
+- 🤖 **AI Insights** - Spending analysis and personalized recommendations
+- 🏥 **System Health** - Real-time monitoring of system status
+- 🔔 **Notifications** - Alert center for transaction confirmations
+
+**Account Actions:**
+- Deposit funds
+- Withdraw funds
+- Transfer between accounts
+- View transaction history
+
+### AI-Powered Features
+
+The dashboard includes intelligent insights:
+
+```
+🤖 AI-Powered Insights                [Beta]
+┌────────────────────────────────────────────┐
+│ 📊 Spending Analysis                       │
+│ Last 30 days:                              │
+│ • Total Deposited: $3,000.00               │
+│ • Total Spent: $500.00                     │
+│ • Net Change: +$2,500.00                   │
+│                                            │
+│ 💡 Recommendation:                         │
+│ Great job saving! Consider investment      │
+│ opportunities to grow your wealth.         │
+└────────────────────────────────────────────┘
+```
+
+### Design Highlights
+
+- **Color Scheme:** Purple/blue gradients, modern card-based design
+- **Responsive:** Works on desktop, tablet, and mobile devices
+- **Animations:** Smooth transitions, hover effects, floating elements
+- **Accessibility:** High contrast, clear typography, keyboard navigation
+
+---
+
+## 10. Technology Stack
+
+**Frontend:**
+- React 18
+- React Router v6
+- Axios for API calls
+- CSS3 Grid & Flexbox
+
+**Backend:**
+- Node.js 20+
+- Express.js
+- TypeScript
+- PostgreSQL 15
+- Redis 7
+- JWT Authentication
+- bcrypt Password Hashing
+
+**DevOps:**
+- Docker/Podman
+- Nginx (production)
+- JSON structured logging
+
+---
+
+**For detailed architecture and API documentation, see `architecture.md`**
